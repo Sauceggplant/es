@@ -13,8 +13,8 @@ import java.util.Date;
  * 试题
  */
 @Entity
-@Table
-public class Test implements Serializable {
+@Table(name = "t_test")
+public class TestEntity implements Serializable {
 
     /**
      * 唯一ID
@@ -50,30 +50,35 @@ public class Test implements Serializable {
      * 创建时间
      */
     @CreationTimestamp
-    private Date createTm;
+    @Column(name = "create_tm")
+    private Date createTime;
 
     /**
      * 创建账户
      */
     @CreatedBy
+    @Column(name = "create_account")
     private String createAccount;
 
     /**
      * 更新时间
      */
     @UpdateTimestamp
-    private Date updateTm;
+    @Column(name = "update_tm")
+    private Date updateTime;
 
     /**
      * 更新账户
      */
     @LastModifiedBy
+    @Column(name = "update_account")
     private String updateAccount;
 
     /**
      * 版本号
      */
     @Version
+    @Column(name = "version")
     private Integer version;
 
     public String getId() {
@@ -116,12 +121,12 @@ public class Test implements Serializable {
         this.answer = answer;
     }
 
-    public Date getCreateTm() {
-        return createTm;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreateTm(Date createTm) {
-        this.createTm = createTm;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public String getCreateAccount() {
@@ -132,12 +137,12 @@ public class Test implements Serializable {
         this.createAccount = createAccount;
     }
 
-    public Date getUpdateTm() {
-        return updateTm;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdateTm(Date updateTm) {
-        this.updateTm = updateTm;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getUpdateAccount() {

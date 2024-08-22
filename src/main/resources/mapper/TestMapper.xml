@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sauceggplant.es.mapper.TestMapper">
+    <select id="getAll" resultType="org.sauceggplant.es.entity.TestEntity">
+select id, title, category, content, answer, create_tm as createTime, create_account as createAccount, update_tm as updateTime, update_account as updateAccount, version from t_test
+    </select>
+    <insert id="add" parameterType="org.sauceggplant.es.entity.TestEntity">
+insert into t_test (id, title, category, content, answer, create_tm, create_account, update_tm, update_account, version) values
+(#{id}, #{title}, #{category}, #{content}, #{answer}, #{createTime}, #{createAccount}, #{updateTime}, #{updateAccount}, #{version})
+    </insert>
+</mapper>
